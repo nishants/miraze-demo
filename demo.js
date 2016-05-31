@@ -17,6 +17,21 @@ miraze.get("/request-header")
 miraze.post("/request-body")
     .sendFile("./sample/request-body/template.json");
 
+// Reading request query
+miraze.get("/query")
+    .sendFile("./sample/url-param/template.json");
+
+// Fixed and variable paths
+miraze.get("/paths/one").sendFile("./sample/paths/one.json");
+miraze.get("/paths/two").sendFile("./sample/paths/two.json");
+miraze.get("/paths/:id").sendFile("./sample/paths/any.json");
+
+// JS manipulations with controllers
+miraze.get("/controlled")
+    .sendFile("./sample/controller/template.json")
+    .controller(function(scope){
+      scope.message = "Controllified !";
+    });
 
 miraze.get("/get/:id").sendFile("./sample/request-path-param.json");
 miraze.get("/params").sendFile("./sample/request-url-param.json");
@@ -43,9 +58,4 @@ miraze.get("/samples/repeater")
 miraze.app.listen(port, function(){
   console.log("running on port : " + port);
 });
-
-//variable/contract paths
-miraze.get("/samples/paths/one").sendFile("./sample/paths/one.json");
-miraze.get("/samples/paths/two").sendFile("./sample/paths/two.json");
-miraze.get("/samples/paths/:id").sendFile("./sample/paths/any.json");
 
