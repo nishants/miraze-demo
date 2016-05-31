@@ -1,10 +1,14 @@
 # Stubbing RESTful server with miraze
 Find samples of request/response [here](https://github.com/nishants/miraze-demo/tree/master/sample).
 
-## A sample script for createing a web server:
+## 1. Creating a new project
+```shell
+npm init
+npm install miraze --save
+```
 
+## 2. Sample script
 ```javascript
-
 var app = require("miraze").create(),
     port  = 3001;
 
@@ -69,4 +73,9 @@ app.directive("@bar", {
     body.otherChild = "bar";
   }
 });
+```
+
+## 3. Running script
+```shell
+node demo.js
 ```
