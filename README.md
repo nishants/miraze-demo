@@ -12,7 +12,6 @@ var app = require("miraze").create(),
 app.get("/templating")
    .sendFile("./sample/templating/template.json");
 
-
 // A sample template
 app.get("/templating")
    .sendFile("./sample/templating/template.json");
